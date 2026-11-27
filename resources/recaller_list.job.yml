@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    recaller_list:
+      name: Recaller List
+      schedule:
+        quartz_cron_expression: "0 0 7 * * ?"
+        timezone_id: Europe/Stockholm
+      tasks:
+        - task_key: build_recaller_list
+          notebook_task:
+            notebook_path: ../src/recaller_list.ipynb
+            base_parameters:
+              environment: ${var.environment}
+              start_datekey: "20260501"
+              recall_window_days: "30"
+              new_customer_days: "30"

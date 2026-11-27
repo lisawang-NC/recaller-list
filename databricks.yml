@@ -1,0 +1,18 @@
+bundle:
+  name: recaller_list
+
+include:
+  - resources/*.yml
+
+variables:
+  environment:
+    description: Catalog (cosdpdev / cosdpprd)
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-747046091317089.9.azuredatabricks.net
+    variables:
+      environment: cosdpdev
