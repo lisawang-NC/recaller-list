@@ -6,7 +6,11 @@ include:
 
 variables:
   environment:
-    description: Catalog (cosdpdev / cosdpprd)
+    description: Catalog to read from and write to
+    default: cosdpprd
+  output_table:
+    description: schema.table the notebook writes
+    default: glall_user.recallerlist
 
 targets:
   dev:
@@ -15,4 +19,6 @@ targets:
     workspace:
       host: https://adb-747046091317089.9.azuredatabricks.net
     variables:
-      environment: cosdpdev
+      # cosdpdev is not reachable from this workspace, so dev uses the prod catalog
+      environment: cosdpprd
+      output_table: glall_user.recallerlist

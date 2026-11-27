@@ -11,6 +11,7 @@ resources:
             notebook_path: ../src/recaller_list.ipynb
             base_parameters:
               environment: ${var.environment}
+              output_table: ${var.output_table}
               start_datekey: "20260501"
               recall_window_days: "30"
               new_customer_days: "30"
